@@ -34,3 +34,11 @@ logs/
 
 # OS generated files
 Thumbs.db
+
+# Hide keys
+*.key
+*.pem
+*.env
+
+# Firebase configuration
+client/src/firebase.js
