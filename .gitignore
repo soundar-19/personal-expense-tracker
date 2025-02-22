@@ -41,4 +41,5 @@ Thumbs.db
 *.env
 
 # Firebase configuration
+
 client/src/firebase.js
