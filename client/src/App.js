@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { AuthProvider, useAuth } from './context/AuthContext';
 import LandingPage from './pages/LandingPage';
 import MainPage from './pages/MainPage';
-import SignUpPage from './pages/auth/SignUpPage';
-import LoginPage from './pages/auth/LoginPage';
+import AuthPage from './pages/auth/AuthPage';
 import DashboardPage from './pages/DashboardPage';
 import BudgetManagement from './pages/BudgetManagement';
 import AnalyticsPage from './pages/AnalyticsPage';
@@ -15,7 +14,7 @@ import './components.css';
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
   const { currentUser } = useAuth();
-  return currentUser ? children : <Navigate to="/login" />;
+  return currentUser ? children : <Navigate to="/auth" />;
 };
 
 function App() {
@@ -24,8 +23,7 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/auth" element={<AuthPage />} />
           
           {/* Protected Routes */}
           <Route 

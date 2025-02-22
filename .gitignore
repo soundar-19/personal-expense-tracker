@@ -27,12 +27,18 @@ node_modules/
 
 # Environment variables
 .env
-# .env
 
 # Logs
 logs/
 *.log
+
 # OS generated files
 Thumbs.db
 
+# Hide keys
+*.key
+*.pem
+*.env
 
+# Firebase configuration
+client/src/firebase.js
