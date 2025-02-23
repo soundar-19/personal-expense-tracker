@@ -10,10 +10,14 @@ const Navigation = () => {
   
   const navLinks = [
     { path: '/app', label: 'Dashboard' },
-    { path: '/budgets', label: 'Budgets' },
+    { path: '/budget', label: 'Budgets' },
     { path: '/analytics', label: 'Analytics' },
-    { path: '/profile', label: 'Profile' }
+    { path: '/profile', label: 'Profile' },
+    { path: '/transactions', label: 'Transactions' },
+    { path: '/goals', label: 'Goals' },
+    { path: '/landing', label: 'Landing' }
   ];
+
 
   const handleLogout = () => {
     logout();

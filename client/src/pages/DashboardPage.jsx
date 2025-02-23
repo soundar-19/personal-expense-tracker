@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { User } from 'lucide-react'; // Import User icon
+
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Alert, AlertDescription } from '../components/ui/alert';
@@ -14,6 +17,7 @@ import {
 } from 'lucide-react';
 
 const Dashboard = () => {
+  const navigate = useNavigate(); // Initialize navigate
   const [showAddExpense, setShowAddExpense] = useState(false);
   const [showAddBudget, setShowAddBudget] = useState(false);
 
@@ -35,9 +39,9 @@ const Dashboard = () => {
 
   const quickActions = [
     { icon: <Plus className="w-5 h-5" />, label: 'Add Expense', onClick: () => setShowAddExpense(true) },
-    { icon: <Target className="w-5 h-5" />, label: 'Set Budget', onClick: () => setShowAddBudget(true) },
-    { icon: <Receipt className="w-5 h-5" />, label: 'Bills & Payments' },
-    { icon: <PiggyBank className="w-5 h-5" />, label: 'Savings Goals' }
+    { icon: <Target className="w-5 h-5" />, label: 'Set Budget', onClick: () => navigate('/budget') },
+    { icon: <Receipt className="w-5 h-5" />, label: 'Bills & Payments', onClick: () => navigate('/transactions') },
+    { icon: <PiggyBank className="w-5 h-5" />, label: 'Savings Goals', onClick: () => navigate('/goals') }
   ];
 
   const recentTransactions = [
@@ -124,7 +128,7 @@ const Dashboard = () => {
             key={index}
             variant="outline"
             className="h-24 flex flex-col items-center justify-center gap-2 hover:bg-gray-50"
-            onClick={action.onClick}
+            onClick={action.onClick ? action.onClick : () => navigate('/')} // Default to navigate to home if no action
           >
             {action.icon}
             <span>{action.label}</span>
